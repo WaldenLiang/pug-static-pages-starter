@@ -1,0 +1,13 @@
+extends ../layouts/default
+block content
+    -
+        const data = {
+            title: 'Title',
+            links: [1, 2, 3, 4]
+        }
+    p #{data.title}
+    img(src='../assets/images/banner.jpg')
+    img(src='../assets/images/icon-.png')
+    ul
+        each item in data.links
+            li #{item} 1
