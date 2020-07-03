@@ -63,6 +63,19 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    host: 'localhost',
+    port: 8080,
+    hot: false,
+    liveReload: true,
+    open: true,
+    progress: true,
+    watchContentBase: true,
+    watchOptions: {
+      poll: 1000,
+      ignored: /node_modules/
+    }
+  },
   optimization: {
     splitChunks: {
       cacheGroups: {
