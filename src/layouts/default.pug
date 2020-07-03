@@ -1,11 +1,15 @@
+block variables
 doctype html
-html
+html(lang='en')
     head
-        title I'm a title
-    body
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title #{title}
+    body(class="d-flex align-items-center flex-column justify-content-between")
         block header
-            - const string2 = '杨超越'
             include ../components/header
-        block content
+        main.flex-grow-1.d-flex.align-items-center.justify-content-center
+            block content
         block footer
             include ../components/footer

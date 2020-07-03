@@ -1,13 +1,9 @@
 extends ../layouts/default
+block variables
+    - const title = 'Home'
 block content
-    -
-        const data = {
-            title: 'Title',
-            links: [1, 2, 3, 4]
-        }
-    p #{data.title}
-    img(src='../assets/images/banner.jpg')
-    img(src='../assets/images/icon-.png')
-    ul
-        each item in data.links
-            li #{item} 12
+    div.text-center
+        img(src="../assets/images/32896703.jpg")
+        h1.mb-5(style="font-size: 50px") HOME
+        h3.mb-3 pug-static-pages-starter
+        p(style="font-size: 20px") Build your static multiple pages website with webpack and pug.

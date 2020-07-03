@@ -1,2 +1,23 @@
-- const string1 = '火箭少女101'
-header this is a header. #{string1} #{string2}
+header(style='line-height: 50px')
+    nav
+        -
+            const links = [
+                {
+                    label: 'Home',
+                    href: './home.html'
+                },
+                {
+                    label: 'About',
+                    href: './about.html'
+                },
+                {
+                    label: 'Contact',
+                    href: './contact.html'
+                }
+            ]
+        ul.nav.justify-content-center
+            each item in links
+                li.nav-item
+                    a(class=['nav-link', item.label === title && 'active'] href=item.href) #{item.label}
+
+

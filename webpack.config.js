@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const glob = require('glob')
 
 module.exports = {
   entry: {
@@ -20,7 +21,12 @@ module.exports = {
       },
       {
         test: /\.pug$/,
-        use: ['html-loader', 'pug-html-loader']
+        use: ['html-loader', {
+          loader: 'pug-html-loader',
+          options: {
+            data: {}
+          }
+        }]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -94,13 +100,20 @@ module.exports = {
       // both options are optional
       filename: 'css/[name].css?[hash]',
       chunkFilename: 'css/[id].css?[hash]'
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'src/pages/home.pug',
+    })
+  ].concat(_gatherTemplate())
+}
+
+function _gatherTemplate () {
+  const files = glob.sync('./src/pages/*.pug')
+  return files.map(file => {
+    const chunkName = file.substring(file.lastIndexOf('/') + 1, file.lastIndexOf('.'))
+    return new HtmlWebpackPlugin({
+      filename: `${chunkName}.html`,
+      template: file,
       inject: true,
-      chunks: ['main', 'vendor'],
+      chunks: [chunkName, 'main', 'vendor'],
       minify: false
     })
-  ]
+  })
 }
