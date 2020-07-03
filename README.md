@@ -1,7 +1,7 @@
 # pug-static-pages-starter
 Build a static website with webpack and pug template engine. And it can help you make multipage HTML development suck less.
 
-[Live demo](https://www.baidu.com)
+[Live demo](http://ethereal-flight.surge.sh/home.html)
 
 ![snapshot](./home_snapshot.png)
 
