@@ -53,7 +53,12 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../',
+            }
+          },
           'css-loader',
           'postcss-loader'
         ]
@@ -61,7 +66,12 @@ module.exports = {
       {
         test: /\.styl$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../',
+            }
+          },
           'css-loader',
           'postcss-loader',
           'stylus-loader'
@@ -104,7 +114,7 @@ module.exports = {
   ].concat(_gatherTemplate())
 }
 
-function _gatherTemplate () {
+function _gatherTemplate() {
   const files = glob.sync('./src/pages/*.pug')
   return files.map(file => {
     const chunkName = file.substring(file.lastIndexOf('/') + 1, file.lastIndexOf('.'))
