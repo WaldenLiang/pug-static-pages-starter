@@ -13,7 +13,7 @@ Build a static website with webpack and pug template engine. And it can help you
 - Multiple pages website
 - Preprocess CSS with stylus and PostCSS
 - Automatically build HtmlWebpackPlugin instance
-- User bootstrap & JQuery
+- Use bootstrap & JQuery
 - Use font-awesome
 
 ## Directory structure
@@ -45,5 +45,8 @@ Build a static website with webpack and pug template engine. And it can help you
 └── package.json
 ```
 
+## License
+[MIT](https://github.com/WaldenLiang/pug-static-pages-starter/blob/master/LICENSE)
 
+Copyright (c) 2020 waldenliang
 
